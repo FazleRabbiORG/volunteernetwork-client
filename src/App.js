@@ -1,23 +1,55 @@
-import logo from './logo.svg';
+import React, { createContext, useState } from 'react';
+import { Route, Switch } from 'react-router-dom';
 import './App.css';
+import Header from './Components/Header/Header';
+import Home from './Components/Home/Home';
+import Login from './Components/Login/Login';
+import NotFound from './Components/NotFound/NotFound';
+import { BrowserRouter as Router } from 'react-router-dom'
+import Home2 from './Components/Home2/Home2';
+import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
+import RegisterVolunteer from './Components/RegisterVolunteer/RegisterVolunteer';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import RegisteredEvent from './Components/RegisteredEvent/RegisteredEvent';
+import AdminShowEvent from './Components/AdminShowEvent/AdminShowEvent';
+import AdminAddEvent from './Components/AdminAddEvent/AdminAddEvent';
+
+export const UserContext = createContext()
 
 function App() {
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+    <div>
+    
+      <Router>
+        <Header/>
+        <Switch>
+          <Route exact path='/'>
+            <Home/>
+          </Route>
+           <Route path='/login'>
+            <Login/>
+          </Route>
+          <Route path='/adminShowEvent'>
+            <AdminShowEvent/>
+          </Route>
+          <Route path='/adminAddEvent'>
+            <AdminAddEvent/>
+          </Route>
+          <PrivateRoute path='/registerVolunteer/:id'>
+            <RegisterVolunteer/>
+          </PrivateRoute>
+          <PrivateRoute path='/registeredEvent'>
+            <RegisteredEvent/>
+          </PrivateRoute>
+          <Route path='*'>
+            <NotFound/>
+          </Route>
+        </Switch>
+      </Router>
+      
     </div>
   );
 }
