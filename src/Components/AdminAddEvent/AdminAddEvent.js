@@ -15,7 +15,7 @@ const AdminAddEvent = () => {
 
     const handleAddEvent = (e) => {
         
-        fetch('http://localhost:5000/addEvent', {
+        fetch('https://boiling-tor-00269.herokuapp.com/addEvent', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

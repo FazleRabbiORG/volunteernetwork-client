@@ -9,7 +9,7 @@ const AdminEventList = (props) => {
     const {_id, name, email, date, eventName} = props.event;
 
     const handleDelete = () => {
-        fetch(`http://localhost:5000/delete/${_id}`, { method: 'DELETE' })
+        fetch(`https://boiling-tor-00269.herokuapp.com/delete/${_id}`, { method: 'DELETE' })
         .then(res => res.json())
         .then(result => {
             history.go(0);

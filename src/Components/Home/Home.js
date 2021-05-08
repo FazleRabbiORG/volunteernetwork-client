@@ -9,7 +9,7 @@ const Home = () => {
     const [eventData, setEventData] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/events')
+        fetch('https://boiling-tor-00269.herokuapp.com/events')
             .then(res => res.json())
             .then(data => setEventData(data))
     }, [])

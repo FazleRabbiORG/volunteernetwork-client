@@ -10,7 +10,7 @@ const AdminShowEvent = () => {
     const history = useHistory();
 
     useEffect( () => {
-        fetch('http://localhost:5000/registeredEvent')
+        fetch('https://boiling-tor-00269.herokuapp.com/registeredEvent')
         .then(res => res.json())
         .then(data => setRegisteredEvent(data))
     }, [])

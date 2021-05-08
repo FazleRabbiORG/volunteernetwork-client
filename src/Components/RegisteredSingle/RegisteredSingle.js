@@ -10,7 +10,7 @@ const RegisteredSingle = (props) => {
     const history = useHistory();
 
     const handleDelete = () => {
-        fetch(`http://localhost:5000/delete/${_id}`, { method: 'DELETE' })
+        fetch(`https://boiling-tor-00269.herokuapp.com/delete/${_id}`, { method: 'DELETE' })
         .then(res => res.json())
         .then(result => {
             history.go(0);

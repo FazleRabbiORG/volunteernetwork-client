@@ -20,7 +20,7 @@ const RegisterVolunteer = () => {
     const email = JSON.parse(localStorage.getItem("email")); 
 
     useEffect(() => {
-        fetch('http://localhost:5000/events')
+        fetch('https://boiling-tor-00269.herokuapp.com/events')
         .then(res => res.json())
         .then(data => {
             setEventData(data)
@@ -48,7 +48,7 @@ const RegisterVolunteer = () => {
             eventImg: event.img,
             date: selectedDate,
         }
-        fetch('http://localhost:5000/addRegisteredEvent', { 
+        fetch('https://boiling-tor-00269.herokuapp.com/addRegisteredEvent', { 
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
